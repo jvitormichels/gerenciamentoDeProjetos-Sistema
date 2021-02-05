@@ -1,4 +1,8 @@
-<?php include('phpFunctions/db.php'); ?>
+<?php 
+	$link = mysqli_connect("localhost", "root", "", "euax_desafio");
+	$projetos = mysqli_query($link, "SELECT * FROM projects"); 
+?>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -18,14 +22,16 @@
 				<td>% Completo</td>
 				<td>Atrasado</td>
 			</tr>
-			<tr>
-				<td>1</td>
-				<td><a class="link" href="atividades.php">Desafio Euax</a></td>
-				<td>03/02/2020</td>
-				<td>10/02/2020</td>
-				<td>2%</td>
-				<td>Não</td>
-			</tr>
+
+			<?php while($row = mysqli_fetch_array($projetos)) { ?>
+				<tr>
+					<td><?php echo $row['project_id']; ?></td>
+					<td><a class="link" href="atividades.php"><?php echo $row['project_name']; ?></a></td>
+					<td><?php echo $row['date_start']; ?></td>
+					<td><?php echo $row['date_end']; ?></td>
+				</tr>
+			<?php } ?>
+
 		</table>
 	</div>
 
