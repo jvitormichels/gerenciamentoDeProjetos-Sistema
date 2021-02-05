@@ -1,4 +1,4 @@
-<?php include('phpFunctions/connection.php'); ?>
+<?php include('phpFunctions/db.php'); ?>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -30,19 +30,19 @@
 	</div>
 
 	<div class="formPopup" id="newProjectForm">
-		<form action="phpFunctions/newProject_Submit.php" class="formContainer">
+		<form method="post" action="phpFunctions/newProject_Submit.php" class="formContainer">
 			<h2>Cadastrar novo projeto</h2><br>
 			<div>
-				<label for="nomeDoProjeto"><b>Nome do projeto</b></label>
-				<input type="text" name="nomeDoProjeto" required/>
+				<label for="project_name"><b>Nome do projeto</b></label>
+				<input type="text" name="project_name" required/>
 			</div>
 			<div>
-				<label for="dataInicio"><b>Data de início</b></label>
-				<input type="date" name="dataInicio" required/>
+				<label for="date_start"><b>Data de início</b></label>
+				<input type="date" name="date_start" required/>
 			</div>
 			<div>
-				<label for="dataFim"><b>Prazo final</b></label>
-				<input type="date" name="dataFim" required/>
+				<label for="date_end"><b>Prazo final</b></label>
+				<input type="date" name="date_end" required/>
 			</div>
 			<br>
 			<button type="submit" class="btn-1">Concluir</button>
