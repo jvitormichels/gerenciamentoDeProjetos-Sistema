@@ -76,7 +76,10 @@
 			</div>
 			<div>
 				<label for="finished"><b>Finalizada?</b></label>
-				<input type="checkbox" name="finished"/>
+				<select name="finished">
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
+				</select>
 			</div>
 			<br>
 			<button type="submit" class="btn-1">Concluir</button>

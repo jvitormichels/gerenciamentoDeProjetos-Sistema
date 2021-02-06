@@ -9,7 +9,7 @@
     $activity_name = $_POST['activity_name'];
     $date_start = $_POST['date_start'];
     $date_end = $_POST['date_end'];
-    $finished = FALSE;
+    $finished = $_POST['finished'];
 
     $sql = "INSERT INTO activities (activity_id, project_id, activity_name, date_start, date_end, finished) VALUES (NULL, '$project_id', '$activity_name', '$date_start', '$date_end', '$finished')";
     
