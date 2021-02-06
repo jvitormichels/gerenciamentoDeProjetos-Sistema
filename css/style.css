@@ -1,23 +1,33 @@
 body {
-    background-color: #0d1117;
-    color: white;
+    background-color: #ffffff;
+    color: #060606;
+    font-family: 'Roboto', sans-serif;
 }
 
-.link {
-    color: white;
-    text-decoration: none;
-    transition: 0.2s;
-}
-  
-.link:hover {
-    color: rgb(126, 173, 243);
-    cursor: pointer;
-    text-decoration: none;
+/* caixa da tabela de projetos */
+.tableBox {
+    margin-top: 30px;
 }
 
+.dataTable {
+    background-color: #C8D1E6;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #A6AEBF;
+}
 
 tr {
+    transition: 0.2s;
     text-align: center;
+}
+
+tr:hover {
+    background-color: #BDC5D9;
+    color: #1e2a42;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .formPopup {
@@ -26,4 +36,4 @@ tr {
     padding: 20px;
     position: fixed;
     border-radius: 10px;
-  }
+}

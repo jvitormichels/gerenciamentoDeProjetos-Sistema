@@ -8,4 +8,4 @@ function OpenForm(formID) {
 
 function CloseForm(formID) {
     document.getElementById(formID).style.display = "none";
-  }
+}
