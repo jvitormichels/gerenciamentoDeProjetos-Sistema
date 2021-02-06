@@ -35,7 +35,15 @@
 					<td><?php echo $row['activity_name']; ?></a></td>
 					<td><?php echo $row['date_start']; ?></td>
 					<td><?php echo $row['date_end']; ?></td>
-					<td><?php echo $row['finished']; ?></td>
+					<td>
+						<?php 
+							if (($row['finished']) == 0) {
+								echo "Não";
+							}else{
+								echo "Sim";
+							}
+						?>
+					</td>
 				</tr>
 			<?php } ?>
 		</table>
