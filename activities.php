@@ -1,7 +1,8 @@
 <?php 
 	$link = mysqli_connect("localhost", "root", "", "euax_desafio");
-	$projetos = mysqli_query($link, "SELECT * FROM projects"); 
-	$atividades = mysqli_query($link, "SELECT * FROM activities"); 
+	$projetos = mysqli_query($link, "SELECT * FROM projects");
+	$projeto_id = $_GET['id'];
+	$atividades = mysqli_query($link, "SELECT * FROM activities WHERE project_id=$projeto_id");
 ?>
 
 <html lang="en">
