@@ -1,7 +1,8 @@
 <?php 
 	$link = mysqli_connect("localhost", "root", "", "euax_desafio");
-	$projetos = mysqli_query($link, "SELECT * FROM projects"); 
-	$atividades = mysqli_query($link, "SELECT * FROM activities"); 
+	$projetos = mysqli_query($link, "SELECT * FROM projects");
+	$projeto_id = $_GET['id'];
+	$atividades = mysqli_query($link, "SELECT * FROM activities WHERE project_id=$projeto_id");
 ?>
 
 <html lang="en">
@@ -15,7 +16,7 @@
 </head>
 <body>
 	<input type="button" onclick="OpenForm('newActivityForm');" value="Nova atividade"/>
-	<input type="button" onclick="Redirect('index.php');" value="Mostrar atividades"/>
+	<input type="button" onclick="Redirect('index.php');" value="Mostrar projetos"/>
 
 	<div id="activities-tableBox" class="tableBox">
 		<table align="center" border="1"  class="dataTable" style="width: 90%;">
@@ -76,7 +77,10 @@
 			</div>
 			<div>
 				<label for="finished"><b>Finalizada?</b></label>
-				<input type="checkbox" name="finished"/>
+				<select name="finished">
+					<option value="0">Não</option>
+					<option value="1">Sim</option>
+				</select>
 			</div>
 			<br>
 			<button type="submit" class="btn-1">Concluir</button>
