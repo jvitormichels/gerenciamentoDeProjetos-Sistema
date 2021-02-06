@@ -25,5 +25,5 @@
 
     //redirecionamento
     //header('Location: ../index.php');
-    header('Location: ../activities.php');
+    header('Location: ../activities.php?id=' . $project_id);
 ?>

@@ -16,7 +16,7 @@
 </head>
 <body>
 	<input type="button" onclick="OpenForm('newActivityForm');" value="Nova atividade"/>
-	<input type="button" onclick="Redirect('index.php');" value="Mostrar atividades"/>
+	<input type="button" onclick="Redirect('index.php');" value="Mostrar projetos"/>
 
 	<div id="activities-tableBox" class="tableBox">
 		<table align="center" border="1"  class="dataTable" style="width: 90%;">
