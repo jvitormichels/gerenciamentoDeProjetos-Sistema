@@ -1,16 +1,20 @@
 <?php
     session_start();
-
+    
     //criar conexão
     $link = mysqli_connect("localhost", "root", "", "euax_desafio");
 
+    //pega o id do projeto, armazenado no url, ao qual a atividade pertencerá
+    $project_id = $_GET['id'];
+
     //resgata informações do formulário html
-    $project_id = $_POST['project_id'];
     $activity_name = $_POST['activity_name'];
     $date_start = $_POST['date_start'];
     $date_end = $_POST['date_end'];
     $finished = $_POST['finished'];
 
+    //busca o maior id de atividades de um determinado projeto
+    //soma 1 e define o resultado como id da nova atividade
     $activities = mysqli_query($link, "SELECT MAX(activity_id) AS largest_id FROM activities WHERE project_id=$project_id");
     $row = mysqli_fetch_array($activities);
     $activity_id = $row['largest_id'] + 1;

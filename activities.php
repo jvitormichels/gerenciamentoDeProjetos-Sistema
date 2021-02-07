@@ -17,7 +17,6 @@
 <body>
 	<input type="button" onclick="OpenForm('newActivityForm');" value="Nova atividade"/>
 	<input type="button" onclick="Redirect('index.php');" value="Mostrar projetos"/>
-
 	<div id="activities-tableBox" class="tableBox">
 		<table align="center" border="1"  class="dataTable" style="width: 90%;">
 			<tr>
@@ -53,16 +52,9 @@
 
 	<!-- Formulário para criação de atividades -->
 	<div class="formPopup" id="newActivityForm">
-		<form method="post" action="phpFunctions/Activity_Submit.php" class="formContainer">
+		<form method="post" action="phpFunctions/Activity_Submit.php?id=<?php echo $projeto_id ?>" class="formContainer">
 			<h2>Cadastrar nova atividade</h2>
-			<div>
-				<label for="project_id"><b>Id do projeto</b></label>
-				<select name="project_id">
-					<?php while($row = mysqli_fetch_array($projetos)) { ?>
-						<option value="<?php echo $row['project_id']; ?>"><?php echo $row['project_name']; ?></option>
-					<?php } ?>
-				</select>
-			</div>
+			
 			<div>
 				<label for="activity_name"><b>Nome da atividade</b></label>
 				<input type="text" name="activity_name" required/>
