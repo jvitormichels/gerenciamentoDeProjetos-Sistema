@@ -79,5 +79,5 @@
 		</form>
 	</div>
 </body>
-<script src="js/testScript.js"></script>
+<script src="js/screen.js"></script>
 </html>

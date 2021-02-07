@@ -31,7 +31,7 @@
 
 			<!-- Verifica as linhas do mysql e gera novas linhas na tabela -->
 			<?php while($row = mysqli_fetch_array($projetos)) { ?>
-				<tr class="link" id="link" onclick=Redirect("activities.php?id=<?php echo $row['project_id'] ?>")>
+				<tr class="link" id="link" onclick=CreateProjectModal("<?php echo $row['project_id'] ?>")>
 					<td><?php echo $row['project_id']; ?></td>
 					<td><?php echo $row['project_name']; ?></td>
 					<td><?php echo $row['date_start']; ?></td>
@@ -90,6 +90,9 @@
 			<button type="reset" class="btn-cancel" onclick="CloseForm('newProjectForm')">Cancelar</button>
 		</form>
 	</div>
+
+	<!-- gerado sob demanda via -->
+	<div id="modal"></div>
 </body>
-<script src="js/testScript.js"></script>
+<script src="js/screen.js"></script>
 </html>
