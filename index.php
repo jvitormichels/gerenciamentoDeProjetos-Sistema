@@ -52,7 +52,17 @@
 							}
 						?>
 					</td>
-					<td>Pendente</td>
+					<td>
+						<?php
+							$aux_activities_late = mysqli_query($link, "SELECT finished FROM activities WHERE finished=0 AND project_id=" . $row['project_id']);
+							$num_activities_late = mysqli_num_rows($aux_activities_late);
+							if ($num_activities_late == 0) {
+								echo "Sem atrasos";
+							}else{
+								echo "Sim";
+							}
+						?>
+					</td>
 				</tr>
 			<?php } ?>
 		</table>
