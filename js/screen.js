@@ -11,7 +11,6 @@ function CloseForm(formID) {
 }
 
 function CreateProjectModal(projectID) {
-    console.log("testemodas2");
     var modal = document.createElement("DIV");
     modal.className = "modal";
     modal.id = "modal";
@@ -30,15 +29,22 @@ function CreateProjectModal(projectID) {
     closeButton.type = "button";
     closeButton.addEventListener('click', RemoveModal);
 
+    var seeProject = document.createElement("INPUT");
+    seeProject.value = "Ver projeto";
+    seeProject.type = "button";
+    seeProject.addEventListener('click', function() {
+        Redirect("activities.php?id=" + projectID);
+    }, false);
+
     modal.appendChild(modalContent);
     modalContent.appendChild(closeSpan);
     modalContent.appendChild(p);
     modalContent.appendChild(closeButton);
+    modalContent.appendChild(seeProject);
 
     document.body.appendChild(modal);
 }
 
 function RemoveModal() {
-    console.log("kfjhdskjfghs");
     document.body.removeChild(document.getElementById("modal"));
 }
