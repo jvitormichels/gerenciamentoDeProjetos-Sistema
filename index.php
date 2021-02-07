@@ -47,8 +47,8 @@
 							}else{
 								$aux_activities_done = mysqli_query($link, "SELECT finished FROM activities WHERE finished=1 AND project_id=" . $row['project_id']);
 								$num_activities_done = mysqli_num_rows($aux_activities_done);
-								$progress = ($num_activities_done / $num_activities_total) * 100 . "%";
-								echo $progress;
+								$progress = ($num_activities_done / $num_activities_total) * 100;
+								echo round($progress, 0) . "%";
 							}
 						?>
 					</td>
