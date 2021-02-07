@@ -36,7 +36,22 @@
 					<td><?php echo $row['project_name']; ?></td>
 					<td><?php echo $row['date_start']; ?></td>
 					<td><?php echo $row['date_end']; ?></td>
-					<td>Pendente</td>
+					<td>
+						<?php
+							//compara o número total de atividades com o número de atividades concluídas
+							//e valida a existência de atividades para prevenir /0
+							$aux_activities_total = mysqli_query($link, "SELECT finished FROM activities WHERE project_id=" . $row['project_id']);
+							$num_activities_total = mysqli_num_rows($aux_activities_total);
+							if ($num_activities_total == 0) {
+								echo "Sem atividades";
+							}else{
+								$aux_activities_done = mysqli_query($link, "SELECT finished FROM activities WHERE finished=1 AND project_id=" . $row['project_id']);
+								$num_activities_done = mysqli_num_rows($aux_activities_done);
+								$progress = ($num_activities_done / $num_activities_total) * 100 . "%";
+								echo $progress;
+							}
+						?>
+					</td>
 					<td>Pendente</td>
 				</tr>
 			<?php } ?>
