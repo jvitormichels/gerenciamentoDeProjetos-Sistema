@@ -59,6 +59,14 @@ function CreateModal(projectID) {
         CreateConfirmModal(projectID);
     }, false);
 
+    var archiveProject = document.createElement("INPUT");
+    archiveProject.className = "btn btn-warning";
+    archiveProject.value = "Arquivar projeto";
+    archiveProject.type = "button";
+    archiveProject.addEventListener('click', function() {
+        Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
+    }, false);
+
     modal.appendChild(modalContent);
     modalContent.appendChild(closeSpan);
     modalContent.appendChild(p);
@@ -66,7 +74,7 @@ function CreateModal(projectID) {
     modalContent.appendChild(seeProject);
     modalContent.appendChild(editProject);
     modalContent.appendChild(deleteProject);
-
+    modalContent.appendChild(archiveProject);
     document.body.appendChild(modal);
 }
 
@@ -134,7 +142,7 @@ function CreateProjectEditModal(projectID) {
 
     var editionForm = document.createElement("FORM");
     editionForm.method = "post";
-    editionForm.action = "phpFunctions/Project_Edition.php?id=" + projectID;
+    editionForm.action = "phpFunctions/Project_Update.php?id=" + projectID;
     modalContent.appendChild(editionForm);
 
     var divName = document.createElement("DIV");
@@ -142,6 +150,7 @@ function CreateProjectEditModal(projectID) {
     nameField_label.for = "nameField";
     nameField_label.innerHTML = "Nome do projeto";
     var nameField = document.createElement("INPUT");
+    nameField.required = true;
     nameField.name = "project_name";
     editionForm.appendChild(divName);
     divName.appendChild(nameField_label);
@@ -152,6 +161,7 @@ function CreateProjectEditModal(projectID) {
     dateStartField_label.for = "dateStartField";
     dateStartField_label.innerHTML = "Data de início";
     var dateStartField = document.createElement("INPUT");
+    dateStartField.required = true;
     dateStartField.type = "date";
     dateStartField.name = "date_start";
     editionForm.appendChild(divDateStart);
@@ -163,6 +173,7 @@ function CreateProjectEditModal(projectID) {
     dateEndField_label.for = "dateEndField";
     dateEndField_label.innerHTML = "Prazo final";
     var dateEndField = document.createElement("INPUT");
+    dateEndField.required = true;
     dateEndField.type = "date";
     dateEndField.name = "date_end";
     editionForm.appendChild(divDateEnd);

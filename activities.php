@@ -2,6 +2,7 @@
 	$link = mysqli_connect("localhost", "root", "", "euax_desafio");
 	$projeto_id = $_GET['id'];
 	$atividades = mysqli_query($link, "SELECT * FROM activities WHERE project_id=$projeto_id");
+	//$arquivado = mysqli_query($link, "SELECT archived FROM projects WHERE project_id=$projeto_id");
 ?>
 
 <html lang="en">
@@ -74,8 +75,8 @@
 				</select>
 			</div>
 			<br>
-			<button type="submit" class="btn-1">Concluir</button>
 			<button type="reset" class="btn-cancel" onclick="CloseForm('newActivityForm')">Cancelar</button>
+			<button type="submit" class="btn-1">Concluir</button>
 		</form>
 	</div>
 </body>
