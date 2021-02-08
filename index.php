@@ -1,7 +1,14 @@
 <?php 
 	$link = mysqli_connect("localhost", "root", "", "euax_desafio");
-	$projetos = mysqli_query($link, "SELECT * FROM projects"); 
-	$atividades = mysqli_query($link, "SELECT * FROM activities");
+
+	$mostrar_arquivados = (isset($_GET["arquivados"]) && trim($_GET["arquivados"]) == '1');
+	if ($mostrar_arquivados == 0) { 
+		$projetos = mysqli_query($link, "SELECT * FROM projects WHERE archived=0"); 
+	}
+	else {
+		$projetos = mysqli_query($link, "SELECT * FROM projects WHERE archived=1");
+	}
+	//$atividades = mysqli_query($link, "SELECT * FROM activities");
 ?>
 
 <html lang="en">
@@ -17,6 +24,7 @@
 <body>
 	<input type="button" onclick="OpenForm('newProjectForm');" value="Novo projeto"/>
 	<input type="button" onclick="Redirect('activities.php');" value="Mostrar atividades"/>
+	<input type="button" onclick="Redirect('index.php?arquivados=<?php echo $mostrar_arquivados == 1 ? '0' : '1';?>');" value="Mostrar <?php echo $mostrar_arquivados == 1 ? 'Ativos' : 'Arquivados';?>">
 
 	<div id="project-tableBox" class="tableBox">
 		<table align="center" border="1" class="dataTable" style="width: 90%;">

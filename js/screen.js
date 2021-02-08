@@ -59,6 +59,14 @@ function CreateModal(projectID) {
         CreateConfirmModal(projectID);
     }, false);
 
+    var archiveProject = document.createElement("INPUT");
+    archiveProject.className = "btn btn-warning";
+    archiveProject.value = "Arquivar projeto";
+    archiveProject.type = "button";
+    archiveProject.addEventListener('click', function() {
+        Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
+    }, false);
+
     modal.appendChild(modalContent);
     modalContent.appendChild(closeSpan);
     modalContent.appendChild(p);
@@ -66,7 +74,7 @@ function CreateModal(projectID) {
     modalContent.appendChild(seeProject);
     modalContent.appendChild(editProject);
     modalContent.appendChild(deleteProject);
-
+    modalContent.appendChild(archiveProject);
     document.body.appendChild(modal);
 }
 
