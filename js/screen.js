@@ -10,11 +10,13 @@ function CloseForm(formID) {
     document.getElementById(formID).style.display = "none";
 }
 
-function CreateProjectModal(projectID) {
+function CreateModal(projectID) {
     var modal = document.createElement("DIV");
     modal.className = "modal";
     modal.id = "modal";
-    modal.addEventListener('click', RemoveModal);
+    modal.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
 
     var modalContent = document.createElement("DIV");
     modalContent.className = "modalContent";
@@ -26,10 +28,12 @@ function CreateProjectModal(projectID) {
     p.innerHTML = projectID;
 
     var closeButton = document.createElement("INPUT");
-    closeButton,className = "btn btn-primary";
+    closeButton.className = "btn btn-primary";
     closeButton.value = "Fechar";
     closeButton.type = "button";
-    closeButton.addEventListener('click', RemoveModal);
+    closeButton.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
 
     var seeProject = document.createElement("INPUT");
     seeProject.className = "btn btn-success";
@@ -44,7 +48,7 @@ function CreateProjectModal(projectID) {
     deleteProject.value = "Deletar projeto";
     deleteProject.type = "button";
     deleteProject.addEventListener('click', function() {
-        Redirect("phpFunctions/Project_Delete.php?id=" + projectID);
+        CreateConfirmModal(projectID);
     }, false);
 
     modal.appendChild(modalContent);
@@ -57,6 +61,48 @@ function CreateProjectModal(projectID) {
     document.body.appendChild(modal);
 }
 
-function RemoveModal() {
-    document.body.removeChild(document.getElementById("modal"));
+function CreateConfirmModal(projectID) {
+    var modal = document.createElement("DIV");
+    modal.className = "modal";
+    modal.id = "confirmModal";
+    modal.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
+
+    var modalContent = document.createElement("DIV");
+    modalContent.className = "confirmModalContent";
+
+    var closeSpan = document.createElement("SPAN");
+    closeSpan.className = "close";
+
+    var p = document.createElement("P");
+    p.innerHTML = "Tem certeza que deseja deletar o projeto?";
+
+    var closeButton = document.createElement("INPUT");
+    closeButton.className = "btn btn-primary";
+    closeButton.value = "Cancelar";
+    closeButton.type = "button";
+    closeButton.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
+
+    var deleteProject = document.createElement("INPUT");
+    deleteProject.className = "btn btn-danger";
+    deleteProject.value = "Deletar";
+    deleteProject.type = "button";
+    deleteProject.addEventListener('click', function() {
+        Redirect("phpFunctions/Project_Delete.php?id=" + projectID);
+    }, false);
+
+    modal.appendChild(modalContent);
+    modalContent.appendChild(closeSpan);
+    modalContent.appendChild(p);
+    modalContent.appendChild(deleteProject);
+    modalContent.appendChild(closeButton);
+
+    document.body.appendChild(modal);
+}
+
+function RemoveModal(modalId) {
+    document.body.removeChild(document.getElementById(modalId));
 }
