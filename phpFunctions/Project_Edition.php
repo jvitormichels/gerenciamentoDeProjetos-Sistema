@@ -12,9 +12,9 @@
 
     //deleção do projeto
     $sql = ("UPDATE projects
-        SET project_name=$project_name,
-        date_start = $date_start,
-        date_end = $date_end
+        SET project_name = '$project_name',
+        date_start = '$date_start',
+        date_end = '$date_end'
         WHERE project_id = $project_id");
 
     //valida a edição
