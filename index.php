@@ -71,7 +71,7 @@
 
 	<!-- Formulário para criação de projetos -->
 	<div class="formPopup" id="newProjectForm">
-		<form method="post" action="phpFunctions/Project_Submit.php" class="formContainer">
+		<form method="post" action="phpFunctions/Project_Submit.php">
 			<h2>Cadastrar novo projeto</h2>
 			<div>
 				<label for="project_name"><b>Nome do projeto</b></label>
