@@ -74,7 +74,7 @@
 					}
 				?>
 
-				<tr class="link" id="link" onclick="CreateModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
+				<tr class="link" id="link" onclick="ProjectModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
 					<td><?php echo $row['project_id']; ?>	</td>
 					<td><?php echo $row['project_name']; ?>	</td>
 					<td><?php echo $row['date_start']; ?>	</td>
@@ -89,6 +89,7 @@
 	<!-- Formulário para criação de projetos -->
 	<div class="modal" id="newProjectForm" style="display:none;">
 		<div class="modalContent">
+			<span class="close" onclick="CloseForm('newProjectForm')">✖</span>
 			<form method="post" action="phpFunctions/Project_Submit.php">
 				<h2>Cadastrar novo projeto</h2>
 				<div>

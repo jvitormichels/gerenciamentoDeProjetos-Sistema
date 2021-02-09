@@ -12,6 +12,7 @@
     $date_start = $_POST['date_start'];
     $date_end = $_POST['date_end'];
     $finished = $_POST['finished'];
+    $archived = FALSE;
 
     //busca o maior id de atividades de um determinado projeto
     //soma 1 e define o resultado como id da nova atividade
@@ -19,7 +20,7 @@
     $row = mysqli_fetch_array($activities);
     $activity_id = $row['largest_id'] + 1;
 
-    $sql = "INSERT INTO activities (activity_id, project_id, activity_name, date_start, date_end, finished) VALUES ($activity_id, '$project_id', '$activity_name', '$date_start', '$date_end', '$finished')";
+    $sql = "INSERT INTO activities (activity_id, project_id, activity_name, date_start, date_end, finished, archived) VALUES ('$activity_id', '$project_id', '$activity_name', '$date_start', '$date_end', '$finished', '$archived')";
 
     //valida a inserção
     //retire o redirecionamento para monitorar isso
