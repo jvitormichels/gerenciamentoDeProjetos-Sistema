@@ -61,6 +61,7 @@
 	<!-- Formulário para criação de atividades -->
 	<div class="modal" id="newActivityForm" style="display:none;">
 		<div class="modalContent">
+			<span class="close" onclick="CloseForm('newProjectForm')">✖</span>
 			<form method="post" action="phpFunctions/Activity_Submit.php?id=<?php echo $projeto_id ?>" class="formContainer">
 				<h2>Cadastrar nova atividade</h2>
 				

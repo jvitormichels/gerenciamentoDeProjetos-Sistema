@@ -89,6 +89,7 @@
 	<!-- Formulário para criação de projetos -->
 	<div class="modal" id="newProjectForm" style="display:none;">
 		<div class="modalContent">
+			<span class="close" onclick="CloseForm('newProjectForm')">✖</span>
 			<form method="post" action="phpFunctions/Project_Submit.php">
 				<h2>Cadastrar novo projeto</h2>
 				<div>
