@@ -20,30 +20,30 @@
 	<div id="activities-tableBox" class="tableBox">
 		<table align="center" border="1"  class="dataTable" style="width: 90%;">
 			<tr>
-				<th>ID da Atividade</th>
-				<th>ID do Projeto</th>
-				<th>Nome da Atividade</th>
-				<th>Data Início</th>
-				<th>Data Fim</th>
-				<th>Finalizada</th>
+				<th>ID da Atividade		</th>
+				<th>ID do Projeto		</th>
+				<th>Nome da Atividade	</th>
+				<th>Data Início			</th>
+				<th>Data Fim			</th>
+				<th>Finalizada			</th>
 			</tr>
 
 			<?php while($row = mysqli_fetch_array($atividades)) { ?>
 				<tr>
-					<td><?php echo $row['activity_id']; ?></td>
-					<td><?php echo $row['project_id']; ?></td>
-					<td><?php echo $row['activity_name']; ?></a></td>
-					<td><?php echo $row['date_start']; ?></td>
-					<td><?php echo $row['date_end']; ?></td>
-					<td>
-						<?php 
-							if (($row['finished']) == 0) {
-								echo "Não";
-							}else{
-								echo "Sim";
-							}
-						?>
-					</td>
+					<?php
+						//verifica se a atividade foi ou não finalizada
+						if (($row['finished']) == 0) {
+							$finished = "Não";
+						}else{
+							$finished =  "Sim";
+						}
+					?>
+					<td><?php echo $row['activity_id']; ?>		</td>
+					<td><?php echo $row['project_id']; ?>		</td>
+					<td><?php echo $row['activity_name']; ?>	</td>
+					<td><?php echo $row['date_start']; ?>		</td>
+					<td><?php echo $row['date_end']; ?>			</td>
+					<td><?php echo $finished ?>					</td>
 				</tr>
 			<?php } ?>
 		</table>
