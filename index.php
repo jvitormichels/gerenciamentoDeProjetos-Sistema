@@ -23,8 +23,8 @@
 </head>
 
 <body>
-	<input type="button" class="btn-success" onclick="OpenForm('newProjectForm');" value="Novo projeto"/>
-	<input type="button" class="btn-secondary" onclick="Redirect('index.php?arquivados=<?php echo $mostrar_arquivados == 1 ? '0' : '1';?>');" value="Mostrar <?php echo $mostrar_arquivados == 1 ? 'Ativos' : 'Arquivados';?>">
+	<input type="button" class="btn-success" onclick="OpenForm('newProjectForm');" value="≻ Novo projeto"/>
+	<input type="button" class="btn-secondary" onclick="Redirect('index.php?arquivados=<?php echo $mostrar_arquivados == 1 ? '0' : '1';?>');" value="⌹ Mostrar <?php echo $mostrar_arquivados == 1 ? 'Ativos' : 'Arquivados';?>">
 
 	<div id="project-tableBox" class="tableBox">
 		<table align="center" border="1" class="dataTable" style="width: 90%;">
