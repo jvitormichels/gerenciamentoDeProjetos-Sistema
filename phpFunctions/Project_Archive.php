@@ -9,7 +9,7 @@
 
     //deleção do projeto
     $sql = ("UPDATE projects
-        SET archived = '1'
+        SET archived = !archived
         WHERE project_id = $project_id");
 
     //valida a edição

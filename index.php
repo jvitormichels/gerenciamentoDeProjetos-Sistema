@@ -39,7 +39,7 @@
 
 			<!-- Verifica as linhas do mysql e gera novas linhas na tabela -->
 			<?php while($row = mysqli_fetch_array($projetos)) { ?>
-				<tr class="link" id="link" onclick="CreateModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>')">
+				<tr class="link" id="link" onclick="CreateModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
 					<td><?php echo $row['project_id']; ?></td>
 					<td><?php echo $row['project_name']; ?></td>
 					<td><?php echo $row['date_start']; ?></td>

@@ -10,7 +10,7 @@ function CloseForm(formID) {
     document.getElementById(formID).style.display = "none";
 }
 
-function CreateModal(projectID, projectName, dateStart, dateEnd) {
+function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     var modal = document.createElement("DIV");
     modal.className = "modal";
     modal.id = "modal";
@@ -60,12 +60,20 @@ function CreateModal(projectID, projectName, dateStart, dateEnd) {
 
     var archiveProject = document.createElement("INPUT");
     archiveProject.className = "btn btn-warning";
-    archiveProject.value = "Arquivar projeto";
     archiveProject.type = "button";
-    archiveProject.addEventListener('click', function() {
-        Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
-    }, false);
-    modalContent.appendChild(archiveProject);
+    if (archived == 0) {
+        archiveProject.value = "Arquivar projeto";
+        archiveProject.addEventListener('click', function() {
+            Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
+        }, false);
+        modalContent.appendChild(archiveProject);
+    }else{
+        archiveProject.value = "Desarquivar projeto";
+        archiveProject.addEventListener('click', function() {
+            Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
+        }, false);
+        modalContent.appendChild(archiveProject);
+    }
 
     document.body.appendChild(modal);
 }
