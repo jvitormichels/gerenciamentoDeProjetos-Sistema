@@ -39,7 +39,7 @@ function ProjectModal(projectID, projectName, dateStart, dateEnd, archived) {
 
     var seeProject = document.createElement("INPUT");
     seeProject.className = "btn-success";
-    seeProject.value = "Ver projeto";
+    seeProject.value = "⇲ Ver projeto";
     seeProject.type = "button";
     seeProject.addEventListener('click', function() {
         Redirect("activities.php?id=" + projectID + "&arquivados=0");
@@ -48,7 +48,7 @@ function ProjectModal(projectID, projectName, dateStart, dateEnd, archived) {
 
     var editProject = document.createElement("INPUT");
     editProject.className = "btn-secondary";
-    editProject.value = "Editar projeto";
+    editProject.value = "⤨ Editar";
     editProject.type = "button";
     editProject.addEventListener('click', function() {
         ProjectEditModal(projectID, projectName, dateStart, dateEnd);
@@ -57,7 +57,7 @@ function ProjectModal(projectID, projectName, dateStart, dateEnd, archived) {
 
     var deleteProject = document.createElement("INPUT");
     deleteProject.className = "btn-danger";
-    deleteProject.value = "Deletar projeto";
+    deleteProject.value = "✘ Deletar projeto";
     deleteProject.type = "button";
     deleteProject.addEventListener('click', function() {
         ProjectDeletionModal(projectID);
@@ -68,13 +68,13 @@ function ProjectModal(projectID, projectName, dateStart, dateEnd, archived) {
     archiveProject.className = "btn-warning";
     archiveProject.type = "button";
     if (archived == 0) {
-        archiveProject.value = "Arquivar projeto";
+        archiveProject.value = "⌹ Arquivar projeto";
         archiveProject.addEventListener('click', function() {
             Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
         }, false);
         modalContent.appendChild(archiveProject);
     }else{
-        archiveProject.value = "Desarquivar projeto";
+        archiveProject.value = "⌹ Desarquivar projeto";
         archiveProject.addEventListener('click', function() {
             Redirect("phpFunctions/Project_Archive.php?id=" + projectID);
         }, false);
@@ -113,7 +113,7 @@ function ActivityModal(projectID, activityID, activityName, dateStart, dateEnd, 
 
     var editActivity = document.createElement("INPUT");
     editActivity.className = "btn-secondary";
-    editActivity.value = "Editar atividade";
+    editActivity.value = "⤨ Editar";
     editActivity.type = "button";
     editActivity.addEventListener('click', function() {
         ActivityEditModal(projectID, activityID , activityName, dateStart, dateEnd);
@@ -122,7 +122,7 @@ function ActivityModal(projectID, activityID, activityName, dateStart, dateEnd, 
 
     var deleteActivity = document.createElement("INPUT");
     deleteActivity.className = "btn-danger";
-    deleteActivity.value = "Deletar atividade";
+    deleteActivity.value = "✘ Deletar";
     deleteActivity.type = "button";
     deleteActivity.addEventListener('click', function() {
         ActivityDeletionModal(projectID, activityID);
@@ -132,7 +132,7 @@ function ActivityModal(projectID, activityID, activityName, dateStart, dateEnd, 
     var archiveActivity = document.createElement("INPUT");
     archiveActivity.className = "btn-warning";
     archiveActivity.type = "button";
-    archiveActivity.value = archived == 0 ? "Arquivar atividade" : "Desarquivar atividade";
+    archiveActivity.value = archived == 0 ? "⌹ Arquivar" : "⌹ Desarquivar";
     archiveActivity.addEventListener('click', function() {
         Redirect("phpFunctions/Activity_Archive.php?project_id=" + projectID + "&activity_id=" + activityID);
     }, false);
@@ -141,7 +141,7 @@ function ActivityModal(projectID, activityID, activityName, dateStart, dateEnd, 
     var finishActivity = document.createElement("INPUT");
     finishActivity.className = "btn-success";
     finishActivity.type = "button";
-    finishActivity.value = finished == 0 ? "Concluir atividade" : "Desconcluir atividade";
+    finishActivity.value = finished == 0 ? "✔ Concluir" : "✘ Desconcluir";
     finishActivity.addEventListener('click', function() {
         Redirect("phpFunctions/Activity_Conclude.php?p_id=" + projectID + "&a_id=" + activityID);
     }, false);
@@ -252,7 +252,7 @@ function ProjectEditModal(projectID, projectName, dateStart, dateEnd) {
     modalContent.appendChild(closeSpan);
 
     var p = document.createElement("P");
-    p.innerHTML = "Editar projeto";
+    p.innerHTML = "⤨ Editar";
     modalContent.appendChild(p);
 
     var editionForm = document.createElement("FORM");
@@ -334,7 +334,7 @@ function ActivityEditModal(projectID, activityID, activityName, dateStart, dateE
     modalContent.appendChild(closeSpan);
 
     var p = document.createElement("P");
-    p.innerHTML = "Editar atividade";
+    p.innerHTML = "⤨ Editar";
     modalContent.appendChild(p);
 
     var editionForm = document.createElement("FORM");
