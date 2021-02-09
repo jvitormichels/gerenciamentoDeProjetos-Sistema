@@ -10,7 +10,7 @@ function CloseForm(formID) {
     document.getElementById(formID).style.display = "none";
 }
 
-function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
+function CreateProjectModal(projectID, projectName, dateStart, dateEnd, archived) {
     var modal = document.createElement("DIV");
     modal.className = "modal";
     modal.id = "modal";
@@ -42,7 +42,7 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     seeProject.value = "Ver projeto";
     seeProject.type = "button";
     seeProject.addEventListener('click', function() {
-        Redirect("activities.php?id=" + projectID);
+        Redirect("activities.php?id=" + projectID + "&arquivados=0");
     }, false);
     modalContent.appendChild(seeProject);
 
@@ -80,6 +80,72 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
         }, false);
         modalContent.appendChild(archiveProject);
     }
+
+    document.body.appendChild(modal);
+}
+
+function CreateActivityModal(projectID, activityID, activityName, dateStart, dateEnd, archived) {
+    var modal = document.createElement("DIV");
+    modal.className = "modal";
+    modal.id = "modal";
+
+    var modalContent = document.createElement("DIV");
+    modalContent.className = "modalContent";
+    modal.appendChild(modalContent);
+
+    var closeSpan = document.createElement("SPAN");
+    closeSpan.className = "close";
+    closeSpan.innerHTML = "✖";
+    closeSpan.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
+    modalContent.appendChild(closeSpan);
+
+    var p = document.createElement("P");
+    p.innerHTML = "<h2>" + activityName + "</h2>";
+    modalContent.appendChild(p);
+    var p1 = document.createElement("P");
+    p1.innerHTML = "Data de início: " + FormatDate(dateStart);
+    modalContent.appendChild(p1);
+    var p2 = document.createElement("P");
+    p2.innerHTML = "Data final: " + FormatDate(dateEnd);
+    modalContent.appendChild(p2);
+
+    /*var seeProject = document.createElement("INPUT");
+    seeProject.className = "btn-success";
+    seeProject.value = "Ver projeto";
+    seeProject.type = "button";
+    seeProject.addEventListener('click', function() {
+        Redirect("activities.php?id=" + projectID);
+    }, false);
+    modalContent.appendChild(seeProject);*/
+
+    var editActivity = document.createElement("INPUT");
+    editActivity.className = "btn-secondary";
+    editActivity.value = "Editar atividade";
+    editActivity.type = "button";
+    editActivity.addEventListener('click', function() {
+        CreateActivityEditModal(projectID, activityID , projectName, dateStart, dateEnd);
+    }, false);
+    modalContent.appendChild(editActivity);
+
+    var deleteActivity = document.createElement("INPUT");
+    deleteActivity.className = "btn-danger";
+    deleteActivity.value = "Deletar atividade";
+    deleteActivity.type = "button";
+    deleteActivity.addEventListener('click', function() {
+        ActivityDeletionModal(projectID, activityID);
+    }, false);
+    modalContent.appendChild(deleteActivity);
+
+    var archiveActivity = document.createElement("INPUT");
+    archiveActivity.className = "btn-warning";
+    archiveActivity.type = "button";
+    archiveActivity.value = archived == 0 ? "Arquivar atividade" : "Desarquivar atividade";
+    archiveActivity.addEventListener('click', function() {
+        Redirect("phpFunctions/Activity_Archive.php?project_id=" + projectID + "&activity_id=" + activityID);
+    }, false);
+    modalContent.appendChild(archiveActivity);
 
     document.body.appendChild(modal);
 }
