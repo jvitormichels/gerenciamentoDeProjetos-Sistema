@@ -30,6 +30,12 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     var p = document.createElement("P");
     p.innerHTML = "<h2>" + projectName + "</h2>";
     modalContent.appendChild(p);
+    var p1 = document.createElement("P");
+    p1.innerHTML = "Data de início: " + FormatDate(dateStart);
+    modalContent.appendChild(p1);
+    var p2 = document.createElement("P");
+    p2.innerHTML = "Data final: " + FormatDate(dateEnd);
+    modalContent.appendChild(p2);
 
     var seeProject = document.createElement("INPUT");
     seeProject.className = "btn-success";
@@ -204,4 +210,13 @@ function CreateProjectEditModal(projectID, projectName, dateStart, dateEnd) {
 
 function RemoveModal(modalId) {
     document.body.removeChild(document.getElementById(modalId));
+}
+
+function FormatDate (input) {
+    var datePart = input.match(/\d+/g),
+    year = datePart[0], // get only two digits
+    month = datePart[1],
+    day = datePart[2];
+
+    return day+'/'+month+'/'+year;
 }
