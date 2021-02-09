@@ -32,7 +32,7 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     modalContent.appendChild(p);
 
     var seeProject = document.createElement("INPUT");
-    seeProject.className = "btn btn-success";
+    seeProject.className = "btn-success";
     seeProject.value = "Ver projeto";
     seeProject.type = "button";
     seeProject.addEventListener('click', function() {
@@ -41,7 +41,7 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     modalContent.appendChild(seeProject);
 
     var editProject = document.createElement("INPUT");
-    editProject.className = "btn btn-secondary";
+    editProject.className = "btn-secondary";
     editProject.value = "Editar projeto";
     editProject.type = "button";
     editProject.addEventListener('click', function() {
@@ -50,7 +50,7 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     modalContent.appendChild(editProject);
 
     var deleteProject = document.createElement("INPUT");
-    deleteProject.className = "btn btn-danger";
+    deleteProject.className = "btn-danger";
     deleteProject.value = "Deletar projeto";
     deleteProject.type = "button";
     deleteProject.addEventListener('click', function() {
@@ -59,7 +59,7 @@ function CreateModal(projectID, projectName, dateStart, dateEnd, archived) {
     modalContent.appendChild(deleteProject);
 
     var archiveProject = document.createElement("INPUT");
-    archiveProject.className = "btn btn-warning";
+    archiveProject.className = "btn-warning";
     archiveProject.type = "button";
     if (archived == 0) {
         archiveProject.value = "Arquivar projeto";
@@ -100,7 +100,7 @@ function CreateConfirmModal(projectID) {
     modalContent.appendChild(p);
 
     var closeButton = document.createElement("INPUT");
-    closeButton.className = "btn btn-primary";
+    closeButton.className = "btn-primary";
     closeButton.value = "Cancelar";
     closeButton.type = "button";
     closeButton.addEventListener('click', function() {
@@ -109,7 +109,7 @@ function CreateConfirmModal(projectID) {
     modalContent.appendChild(closeButton);
 
     var deleteProject = document.createElement("INPUT");
-    deleteProject.className = "btn btn-danger";
+    deleteProject.className = "btn-danger";
     deleteProject.value = "Deletar";
     deleteProject.type = "button";
     deleteProject.addEventListener('click', function() {
@@ -185,7 +185,7 @@ function CreateProjectEditModal(projectID, projectName, dateStart, dateEnd) {
     divDateEnd.appendChild(dateEndField);
 
     var closeButton = document.createElement("INPUT");
-    closeButton.className = "btn btn-primary";
+    closeButton.className = "btn-primary";
     closeButton.value = "Cancelar";
     closeButton.type = "button";
     closeButton.addEventListener('click', function() {
@@ -194,7 +194,7 @@ function CreateProjectEditModal(projectID, projectName, dateStart, dateEnd) {
     editionForm.appendChild(closeButton);
 
     var submitButton = document.createElement("INPUT");
-    submitButton.className = "btn btn-success";
+    submitButton.className = "btn-success";
     submitButton.value = "Confirmar";
     submitButton.type = "submit";
     editionForm.appendChild(submitButton);
