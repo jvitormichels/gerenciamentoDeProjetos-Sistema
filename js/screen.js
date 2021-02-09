@@ -214,7 +214,7 @@ function RemoveModal(modalId) {
 
 function FormatDate (input) {
     var datePart = input.match(/\d+/g),
-    year = datePart[0], // get only two digits
+    year = datePart[0],
     month = datePart[1],
     day = datePart[2];
 
