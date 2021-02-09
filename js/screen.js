@@ -148,10 +148,11 @@ function CreateProjectEditModal(projectID) {
     var divName = document.createElement("DIV");
     var nameField_label = document.createElement("LABEL");
     nameField_label.for = "nameField";
-    nameField_label.innerHTML = "Nome do projeto";
+    nameField_label.innerHTML = "Nome do projeto: ";
     var nameField = document.createElement("INPUT");
     nameField.required = true;
     nameField.name = "project_name";
+    nameField.value = "project_name";
     editionForm.appendChild(divName);
     divName.appendChild(nameField_label);
     divName.appendChild(nameField);
@@ -159,7 +160,7 @@ function CreateProjectEditModal(projectID) {
     var divDateStart = document.createElement("DIV");
     var dateStartField_label = document.createElement("LABEL");
     dateStartField_label.for = "dateStartField";
-    dateStartField_label.innerHTML = "Data de início";
+    dateStartField_label.innerHTML = "Data de início: ";
     var dateStartField = document.createElement("INPUT");
     dateStartField.required = true;
     dateStartField.type = "date";
@@ -171,7 +172,7 @@ function CreateProjectEditModal(projectID) {
     var divDateEnd = document.createElement("DIV");
     var dateEndField_label = document.createElement("LABEL");
     dateEndField_label.for = "dateEndField";
-    dateEndField_label.innerHTML = "Prazo final";
+    dateEndField_label.innerHTML = "Prazo final: ";
     var dateEndField = document.createElement("INPUT");
     dateEndField.required = true;
     dateEndField.type = "date";
