@@ -15,8 +15,8 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
-	<input type="button" onclick="OpenForm('newActivityForm');" value="Nova atividade"/>
-	<input type="button" onclick="Redirect('index.php');" value="Mostrar projetos"/>
+	<input type="button" class="btn-success" onclick="OpenForm('newActivityForm');" value="Nova atividade"/>
+	<input type="button" class="btn-secondary" onclick="Redirect('index.php');" value="Mostrar projetos"/>
 	<div id="activities-tableBox" class="tableBox">
 		<table align="center" border="1"  class="dataTable" style="width: 90%;">
 			<tr>
@@ -51,33 +51,35 @@
 
 
 	<!-- Formulário para criação de atividades -->
-	<div class="formPopup" id="newActivityForm">
-		<form method="post" action="phpFunctions/Activity_Submit.php?id=<?php echo $projeto_id ?>" class="formContainer">
-			<h2>Cadastrar nova atividade</h2>
-			
-			<div>
-				<label for="activity_name"><b>Nome da atividade</b></label>
-				<input type="text" name="activity_name" required/>
-			</div>
-			<div>
-				<label for="date_start"><b>Data de início</b></label>
-				<input type="date" name="date_start" required/>
-			</div>
-			<div>
-				<label for="date_end"><b>Prazo final</b></label>
-				<input type="date" name="date_end" required/>
-			</div>
-			<div>
-				<label for="finished"><b>Finalizada?</b></label>
-				<select name="finished">
-					<option value="0">Não</option>
-					<option value="1">Sim</option>
-				</select>
-			</div>
-			<br>
-			<button type="reset" class="btn-cancel" onclick="CloseForm('newActivityForm')">Cancelar</button>
-			<button type="submit" class="btn-1">Concluir</button>
-		</form>
+	<div class="modal" id="newActivityForm" style="display:none;">
+		<div class="modalContent">
+			<form method="post" action="phpFunctions/Activity_Submit.php?id=<?php echo $projeto_id ?>" class="formContainer">
+				<h2>Cadastrar nova atividade</h2>
+				
+				<div>
+					<label for="activity_name"><b>Nome da atividade</b></label>
+					<input type="text" name="activity_name" required/>
+				</div>
+				<div>
+					<label for="date_start"><b>Data de início</b></label>
+					<input type="date" name="date_start" required/>
+				</div>
+				<div>
+					<label for="date_end"><b>Prazo final</b></label>
+					<input type="date" name="date_end" required/>
+				</div>
+				<div>
+					<label for="finished"><b>Finalizada?</b></label>
+					<select name="finished">
+						<option value="0">Não</option>
+						<option value="1">Sim</option>
+					</select>
+				</div>
+				<br>
+				<button type="reset" class="btn-secondary" onclick="CloseForm('newActivityForm')">Cancelar</button>
+				<button type="submit" class="btn-success">Concluir</button>
+			</form>
+		</div>
 	</div>
 </body>
 <script src="js/screen.js"></script>
