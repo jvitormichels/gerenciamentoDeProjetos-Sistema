@@ -37,7 +37,7 @@
 			</tr>
 
 			<?php while($row = mysqli_fetch_array($atividades)) { ?>
-				<tr onclick="CreateActivityModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['activity_id']) ?>', '<?php echo ($row['activity_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
+				<tr onclick="ActivityModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['activity_id']) ?>', '<?php echo ($row['activity_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>', '<?php echo ($row['finished']) ?>')">
 					<?php
 						//verifica se a atividade foi ou não finalizada
 						if (($row['finished']) == 0) {

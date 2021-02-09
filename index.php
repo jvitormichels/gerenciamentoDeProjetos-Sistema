@@ -74,7 +74,7 @@
 					}
 				?>
 
-				<tr class="link" id="link" onclick="CreateProjectModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
+				<tr class="link" id="link" onclick="ProjectModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
 					<td><?php echo $row['project_id']; ?>	</td>
 					<td><?php echo $row['project_name']; ?>	</td>
 					<td><?php echo $row['date_start']; ?>	</td>
