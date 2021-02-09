@@ -60,7 +60,7 @@ function CreateProjectModal(projectID, projectName, dateStart, dateEnd, archived
     deleteProject.value = "Deletar projeto";
     deleteProject.type = "button";
     deleteProject.addEventListener('click', function() {
-        CreateConfirmModal(projectID);
+        ProjectDeletionModal(projectID);
     }, false);
     modalContent.appendChild(deleteProject);
 
@@ -150,7 +150,7 @@ function CreateActivityModal(projectID, activityID, activityName, dateStart, dat
     document.body.appendChild(modal);
 }
 
-function CreateConfirmModal(projectID) {
+function ProjectDeletionModal(projectID) {
     var modal = document.createElement("DIV");
     modal.className = "modal";
     modal.id = "confirmModal";
@@ -188,6 +188,48 @@ function CreateConfirmModal(projectID) {
         Redirect("phpFunctions/Project_Delete.php?id=" + projectID);
     }, false);
     modalContent.appendChild(deleteProject);
+
+    document.body.appendChild(modal);
+}
+
+function ActivityDeletionModal(projectID, activityID) {
+    var modal = document.createElement("DIV");
+    modal.className = "modal";
+    modal.id = "confirmModal";
+
+    var modalContent = document.createElement("DIV");
+    modalContent.className = "confirmModalContent";
+    modal.appendChild(modalContent);
+
+    var closeSpan = document.createElement("SPAN");
+    closeSpan.className = "close";
+    closeSpan.innerHTML = "✖";
+    closeSpan.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
+    modalContent.appendChild(closeSpan);
+
+    var p = document.createElement("P");
+    p.innerHTML = "Tem certeza que deseja deletar a atividade?";
+    modalContent.appendChild(p);
+
+    var closeButton = document.createElement("INPUT");
+    closeButton.className = "btn-primary";
+    closeButton.value = "Cancelar";
+    closeButton.type = "button";
+    closeButton.addEventListener('click', function() {
+        RemoveModal(modal.id);
+    }, false);
+    modalContent.appendChild(closeButton);
+
+    var deleteActivity = document.createElement("INPUT");
+    deleteActivity.className = "btn-danger";
+    deleteActivity.value = "Deletar";
+    deleteActivity.type = "button";
+    deleteActivity.addEventListener('click', function() {
+        Redirect("phpFunctions/Activity_Delete.php?p_id=" + projectID + "&a_id=" + activityID);
+    }, false);
+    modalContent.appendChild(deleteActivity);
 
     document.body.appendChild(modal);
 }

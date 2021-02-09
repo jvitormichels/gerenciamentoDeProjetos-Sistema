@@ -22,9 +22,9 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
 </head>
 <body>
+	<input type="button" class="btn-primary" onclick="Redirect('index.php');" value="Voltar"/>
 	<input type="button" class="btn-success" onclick="OpenForm('newActivityForm');" value="Nova atividade"/>
 	<input type="button" class="btn-secondary" onclick="Redirect('activities.php?id=<?php echo ($projeto_id) ?> &arquivados=<?php echo ($mostrar_arquivados) == 1 ? '0' : '1';?>');" value="Mostrar <?php echo $mostrar_arquivados == 1 ? 'Ativas' : 'Arquivadas';?>">
-	<input type="button" class="btn-secondary" onclick="Redirect('index.php');" value="Mostrar projetos"/>
 	<div id="activities-tableBox" class="tableBox">
 		<table align="center" border="1"  class="dataTable" style="width: 90%;">
 			<tr>
