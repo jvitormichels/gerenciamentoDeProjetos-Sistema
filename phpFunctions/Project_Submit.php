@@ -24,5 +24,4 @@
 
     //redirecionamento
     header('Location: ../index.php');
-    //header('Location: ../activities.php');
 ?>

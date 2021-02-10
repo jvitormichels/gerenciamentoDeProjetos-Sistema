@@ -8,7 +8,7 @@
     $project_id = $_GET['p_id'];
     $activity_id = $_GET['a_id'];
 
-    //deleção das atividades referentes ao projeto
+    //deleção da atividade
     $sql = ("DELETE FROM activities WHERE project_id = $project_id AND activity_id = $activity_id");
 
     //valida a deleção
@@ -22,6 +22,5 @@
     $link->close();
 
     //redirecionamento
-    //header('Location: ../index.php');
     header('Location: ../activities.php?id=' . $project_id . '&arquivados=0');
 ?>

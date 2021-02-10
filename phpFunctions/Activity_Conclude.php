@@ -8,7 +8,7 @@
     $project_id = $_GET['p_id'];
     $activity_id = $_GET['a_id'];
 
-    //deleção do projeto
+    //seta a atividade como concluída
     $sql = ("UPDATE activities
         SET finished = !finished
         WHERE project_id = $project_id

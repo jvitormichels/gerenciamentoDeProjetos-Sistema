@@ -8,7 +8,7 @@
     $project_id = $_GET['project_id'];
     $activity_id = $_GET['activity_id'];
 
-    //deleção do projeto
+    //seta a atividade como arquivada
     $sql = ("UPDATE activities
         SET archived = !archived
         WHERE project_id = $project_id AND activity_id = $activity_id");
@@ -24,6 +24,5 @@
     $link->close();
 
     //redirecionamento
-    //header('Location: ../index.php');
     header('Location: ../activities.php?id=' . $project_id . '&arquivados=0');
 ?>

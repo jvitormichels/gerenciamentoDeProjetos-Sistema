@@ -9,6 +9,7 @@
 
     //deleção do projeto
     $sql = ("DELETE FROM projects WHERE project_id = $project_id");
+
     //valida a deleção
     //retire o redirecionamento para monitorar isso
     if ($link->query($sql) === TRUE) {
@@ -17,8 +18,10 @@
         echo "Error: " . $sql . "<br>" . $link->error;
     }
 
+    
     //deleção das atividades referentes ao projeto
     $sql = ("DELETE FROM activities WHERE project_id = $project_id");
+
     //valida a deleção
     //retire o redirecionamento para monitorar isso
     if ($link->query($sql) === TRUE) {

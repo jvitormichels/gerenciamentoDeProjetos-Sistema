@@ -7,7 +7,7 @@
     //pega o id do projeto
     $project_id = $_GET['id'];
 
-    //deleção do projeto
+    //seta o projeto como arquivado
     $sql = ("UPDATE projects
         SET archived = !archived
         WHERE project_id = $project_id");

@@ -4,7 +4,7 @@
     //criar conexão
     $link = mysqli_connect("localhost", "root", "", "euax_desafio");
 
-    //pega o id do projeto
+    //pega o id do projeto e os valores do formulário
     $project_id = $_GET['p_id'];
     $activity_id = $_GET['a_id'];
     $activity_name = $_POST['activity_name'];

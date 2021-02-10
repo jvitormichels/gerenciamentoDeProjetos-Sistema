@@ -9,7 +9,6 @@
 	else {
 		$projetos = mysqli_query($link, "SELECT * FROM projects WHERE archived=1");
 	}
-	//$atividades = mysqli_query($link, "SELECT * FROM activities");
 ?>
 
 <html lang="en">
@@ -25,9 +24,9 @@
 <body>
 	<input type="button" class="btn-success" onclick="OpenForm('newProjectForm');" value="≻ Novo projeto"/>
 	<input type="button" class="btn-secondary" onclick="Redirect('index.php?arquivados=<?php echo $mostrar_arquivados == 1 ? '0' : '1';?>');" value="⌹ Mostrar <?php echo $mostrar_arquivados == 1 ? 'Ativos' : 'Arquivados';?>">
-
+	
 	<div id="project-tableBox" class="tableBox">
-		<table align="center" border="1" class="dataTable" style="width: 90%;">
+		<table align="center" border="1" class="dataTable">
 			<tr>
 				<th>ID do Projeto	</th>
 				<th>Nome do Projeto	</th>
@@ -69,6 +68,7 @@
 					$num_activities_late = mysqli_num_rows($aux_activities_late);
 					$atraso = $num_activities_late == 0 ? "Sem atrasos" : "Sim";
 
+					//define a classe da linha segundo o estado do projeto (atrasado ou não)
 					$rowClass = $num_activities_late == 0 ? "tableRow-normal" : "tableRow-late";
 				?>
 

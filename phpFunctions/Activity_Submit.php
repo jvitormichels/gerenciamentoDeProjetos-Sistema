@@ -19,6 +19,8 @@
     $activities = mysqli_query($link, "SELECT MAX(activity_id) AS largest_id FROM activities WHERE project_id=$project_id");
     $row = mysqli_fetch_array($activities);
     $activity_id = $row['largest_id'] + 1;
+    //uma chave primária não é usada porque todas as atividades são armazenadas na mesma tabela
+    //e seus ids devem ser **sequenciais para cada projeto**
 
     $sql = "INSERT INTO activities (activity_id, project_id, activity_name, date_start, date_end, finished, archived) VALUES ('$activity_id', '$project_id', '$activity_name', '$date_start', '$date_end', '$finished', '$archived')";
 
@@ -33,6 +35,5 @@
     $link->close();
 
     //redirecionamento
-    //header('Location: ../index.php');
     header('Location: ../activities.php?id=' . $project_id);
 ?>
