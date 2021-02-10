@@ -78,7 +78,7 @@ th {
     background-color: #A6AEBF;
 }
 
-tr {
+/*tr {
     transition: 0.2s;
     text-align: center;
 }
@@ -88,6 +88,28 @@ tr:hover {
     color: #1e2a42;
     cursor: pointer;
     text-decoration: none;
+}*/
+
+.tableRow-normal, .tableRow-late {
+    transition: 0.2s;
+    text-align: center;
+}
+.tableRow-normal:hover, .tableRow-late:hover {
+    cursor: pointer;
+}
+
+.tableRow-normal {
+    background-color: #88C4E7;
+}
+.tableRow-normal:hover {
+    background-color: #349AD5;
+}
+
+.tableRow-late {
+    background-color: #FF85A9;
+}
+.tableRow-late:hover {
+    background-color: #FF477B;
 }
 
 

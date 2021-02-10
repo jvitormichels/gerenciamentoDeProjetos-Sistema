@@ -64,17 +64,15 @@
 
 					//filtra entre as atividades do projeto aquelas que 
 					//terminam depois do próprio projeto e não foram finalizadas ainda
-					$aux_activities_late = mysqli_query($link, "SELECT finished FROM activities WHERE finished=0 AND project_id = $project_id AND DATE(date_end) > DATE('" . $project_deadline . "')");
 					//e verifica quantas linhas foram retornadas
+					$aux_activities_late = mysqli_query($link, "SELECT finished FROM activities WHERE finished=0 AND project_id = $project_id AND DATE(date_end) > DATE('" . $project_deadline . "')");
 					$num_activities_late = mysqli_num_rows($aux_activities_late);
-					if ($num_activities_late == 0) {
-						$atraso = "Sem atrasos";
-					}else{
-						$atraso = "Sim";
-					}
+					$atraso = $num_activities_late == 0 ? "Sem atrasos" : "Sim";
+
+					$rowClass = $num_activities_late == 0 ? "tableRow-normal" : "tableRow-late";
 				?>
 
-				<tr class="link" id="link" onclick="ProjectModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
+				<tr class="<?php echo $rowClass ?>" id="link" onclick="ProjectModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['project_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>')">
 					<td><?php echo $row['project_id']; ?>	</td>
 					<td><?php echo $row['project_name']; ?>	</td>
 					<td><?php echo $row['date_start']; ?>	</td>

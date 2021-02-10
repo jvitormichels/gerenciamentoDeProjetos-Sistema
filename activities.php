@@ -37,15 +37,13 @@
 			</tr>
 
 			<?php while($row = mysqli_fetch_array($atividades)) { ?>
-				<tr onclick="ActivityModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['activity_id']) ?>', '<?php echo ($row['activity_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>', '<?php echo ($row['finished']) ?>')">
-					<?php
-						//verifica se a atividade foi ou não finalizada
-						if (($row['finished']) == 0) {
-							$finished = "Não";
-						}else{
-							$finished =  "Sim";
-						}
-					?>
+				<?php
+					//verifica se a atividade foi ou não finalizada
+					$finished = $row['finished'] == 0 ? "Não" : "Sim";
+					$rowClass = $row['finished'] == 0 ? "tableRow-late" : "tableRow-normal";
+				?>
+
+				<tr class="<?php echo $rowClass ?>" onclick="ActivityModal('<?php echo ($row['project_id']) ?>', '<?php echo ($row['activity_id']) ?>', '<?php echo ($row['activity_name']) ?>', '<?php echo ($row['date_start']) ?>', '<?php echo ($row['date_end']) ?>', '<?php echo ($row['archived']) ?>', '<?php echo ($row['finished']) ?>')">
 					<td><?php echo $row['activity_id']; ?>		</td>
 					<td><?php echo $row['project_id']; ?>		</td>
 					<td><?php echo $row['activity_name']; ?>	</td>

@@ -172,8 +172,8 @@ function ProjectDeletionModal(projectID) {
     modalContent.appendChild(p);
 
     var closeButton = document.createElement("INPUT");
-    closeButton.className = "btn-primary";
-    closeButton.value = "Cancelar";
+    closeButton.className = "btn-secondary";
+    closeButton.value = "⇱ Cancelar";
     closeButton.type = "button";
     closeButton.addEventListener('click', function() {
         RemoveModal(modal.id);
@@ -182,7 +182,7 @@ function ProjectDeletionModal(projectID) {
 
     var deleteProject = document.createElement("INPUT");
     deleteProject.className = "btn-danger";
-    deleteProject.value = "Deletar";
+    deleteProject.value = "✘ Deletar";
     deleteProject.type = "button";
     deleteProject.addEventListener('click', function() {
         Redirect("phpFunctions/Project_Delete.php?id=" + projectID);
@@ -214,8 +214,8 @@ function ActivityDeletionModal(projectID, activityID) {
     modalContent.appendChild(p);
 
     var closeButton = document.createElement("INPUT");
-    closeButton.className = "btn-primary";
-    closeButton.value = "Cancelar";
+    closeButton.className = "btn-secondary";
+    closeButton.value = "⇱ Cancelar";
     closeButton.type = "button";
     closeButton.addEventListener('click', function() {
         RemoveModal(modal.id);
@@ -224,7 +224,7 @@ function ActivityDeletionModal(projectID, activityID) {
 
     var deleteActivity = document.createElement("INPUT");
     deleteActivity.className = "btn-danger";
-    deleteActivity.value = "Deletar";
+    deleteActivity.value = "✘ Deletar";
     deleteActivity.type = "button";
     deleteActivity.addEventListener('click', function() {
         Redirect("phpFunctions/Activity_Delete.php?p_id=" + projectID + "&a_id=" + activityID);
@@ -252,7 +252,7 @@ function ProjectEditModal(projectID, projectName, dateStart, dateEnd) {
     modalContent.appendChild(closeSpan);
 
     var p = document.createElement("P");
-    p.innerHTML = "⤨ Editar";
+    p.innerHTML = "Editar";
     modalContent.appendChild(p);
 
     var editionForm = document.createElement("FORM");
@@ -299,8 +299,8 @@ function ProjectEditModal(projectID, projectName, dateStart, dateEnd) {
     divDateEnd.appendChild(dateEndField);
 
     var closeButton = document.createElement("INPUT");
-    closeButton.className = "btn-primary";
-    closeButton.value = "Cancelar";
+    closeButton.className = "btn-secondary";
+    closeButton.value = "⇱ Cancelar";
     closeButton.type = "button";
     closeButton.addEventListener('click', function() {
         RemoveModal(modal.id);
@@ -309,7 +309,7 @@ function ProjectEditModal(projectID, projectName, dateStart, dateEnd) {
 
     var submitButton = document.createElement("INPUT");
     submitButton.className = "btn-success";
-    submitButton.value = "Confirmar";
+    submitButton.value = "✔ Confirmar";
     submitButton.type = "submit";
     editionForm.appendChild(submitButton);
 
@@ -334,7 +334,7 @@ function ActivityEditModal(projectID, activityID, activityName, dateStart, dateE
     modalContent.appendChild(closeSpan);
 
     var p = document.createElement("P");
-    p.innerHTML = "⤨ Editar";
+    p.innerHTML = "Editar";
     modalContent.appendChild(p);
 
     var editionForm = document.createElement("FORM");
@@ -381,8 +381,8 @@ function ActivityEditModal(projectID, activityID, activityName, dateStart, dateE
     divDateEnd.appendChild(dateEndField);
 
     var closeButton = document.createElement("INPUT");
-    closeButton.className = "btn-primary";
-    closeButton.value = "Cancelar";
+    closeButton.className = "btn-secondary";
+    closeButton.value = "⇱ Cancelar";
     closeButton.type = "button";
     closeButton.addEventListener('click', function() {
         RemoveModal(modal.id);
@@ -391,7 +391,7 @@ function ActivityEditModal(projectID, activityID, activityName, dateStart, dateE
 
     var submitButton = document.createElement("INPUT");
     submitButton.className = "btn-success";
-    submitButton.value = "Confirmar";
+    submitButton.value = "✔ Confirmar";
     submitButton.type = "submit";
     editionForm.appendChild(submitButton);
 
