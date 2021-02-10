@@ -21,8 +21,8 @@ Ambos, projetos e atividades podem receber as seguintes ações:
 * Deleção
 * Arquivação
 
-Ainda, atividades podem ser concluidas e desconcluídas, ação que impacta no status de progresso do projeto.
-Baseado na conclusão e prazo final de suas atividades, é calculado o progresso do projeto seu potencial atraso.
+Ainda, atividades podem ser concluídas e desconcluídas, ações que impacta no status de progresso do projeto.
+Baseado na conclusão e prazo final de suas atividades, é calculado o progresso de um projeto e seu potencial atraso.
 
 
 ## Tecnologias
