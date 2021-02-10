@@ -90,21 +90,23 @@
 			<span class="close" onclick="CloseForm('newProjectForm')">✖</span>
 			<form method="post" action="phpFunctions/Project_Submit.php">
 				<h2>Cadastrar novo projeto</h2>
-				<div>
-					<label for="project_name"><b>Nome do projeto</b></label>
+				<div class="editInputs-Box">
+					<label for="project_name">Nome do projeto: </label>
 					<input type="text" name="project_name" required/>
 				</div>
-				<div>
-					<label for="date_start"><b>Data de início</b></label>
+				<div class="editInputs-Box">
+					<label for="date_start">Data de início: </label>
 					<input type="date" name="date_start" required/>
 				</div>
-				<div>
-					<label for="date_end"><b>Prazo final</b></label>
+				<div class="editInputs-Box">
+					<label for="date_end">Prazo final: </label>
 					<input type="date" name="date_end" required/>
 				</div>
 				<br>
-				<button type="submit" class="btn-success">Concluir</button>
-				<button type="reset" class="btn-secondary" onclick="CloseForm('newProjectForm')">Cancelar</button>
+				<div class="buttons-box">
+					<button type="submit" class="btn-success">Concluir</button>
+					<button type="reset" class="btn-secondary" onclick="CloseForm('newProjectForm')">Cancelar</button>
+				</div>
 			</form>
 		</div>
 	</div>

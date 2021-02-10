@@ -59,32 +59,32 @@
 	<!-- Formulário para criação de atividades -->
 	<div class="modal" id="newActivityForm" style="display:none;">
 		<div class="modalContent">
-			<span class="close" onclick="CloseForm('newProjectForm')">✖</span>
+			<span class="close" onclick="CloseForm('newActivityForm')">✖</span>
 			<form method="post" action="phpFunctions/Activity_Submit.php?id=<?php echo $projeto_id ?>" class="formContainer">
 				<h2>Cadastrar nova atividade</h2>
-				
-				<div>
-					<label for="activity_name"><b>Nome da atividade</b></label>
+				<div class="editInputs-Box">
+					<label for="activity_name">Nome da atividade: </label>
 					<input type="text" name="activity_name" required/>
 				</div>
-				<div>
-					<label for="date_start"><b>Data de início</b></label>
+				<div class="editInputs-Box">
+					<label for="date_start">Data de início: </label>
 					<input type="date" name="date_start" required/>
 				</div>
-				<div>
-					<label for="date_end"><b>Prazo final</b></label>
+				<div class="editInputs-Box">
+					<label for="date_end">Prazo final: </label>
 					<input type="date" name="date_end" required/>
 				</div>
-				<div>
-					<label for="finished"><b>Finalizada?</b></label>
+				<div class="editInputs-Box">
+					<label for="finished">Finalizada? </label>
 					<select name="finished">
 						<option value="0">Não</option>
 						<option value="1">Sim</option>
 					</select>
 				</div>
-				<br>
+			<div class="buttons-box">
 				<button type="reset" class="btn-secondary" onclick="CloseForm('newActivityForm')">Cancelar</button>
 				<button type="submit" class="btn-success">Concluir</button>
+				</div>
 			</form>
 		</div>
 	</div>
