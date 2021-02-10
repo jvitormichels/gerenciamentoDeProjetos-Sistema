@@ -104,8 +104,8 @@
 				</div>
 				<br>
 				<div class="buttons-box">
-					<button type="submit" class="btn-success">Concluir</button>
-					<button type="reset" class="btn-secondary" onclick="CloseForm('newProjectForm')">Cancelar</button>
+					<button type="reset" class="btn-secondary" onclick="CloseForm('newProjectForm')">⇱ Cancelar</button>
+					<button type="submit" class="btn-success">✔ Concluir</button>
 				</div>
 			</form>
 		</div>

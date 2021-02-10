@@ -82,8 +82,8 @@
 					</select>
 				</div>
 			<div class="buttons-box">
-				<button type="reset" class="btn-secondary" onclick="CloseForm('newActivityForm')">Cancelar</button>
-				<button type="submit" class="btn-success">Concluir</button>
+				<button type="reset" class="btn-secondary" onclick="CloseForm('newActivityForm')">⇱ Cancelar</button>
+				<button type="submit" class="btn-success">✔ Concluir</button>
 				</div>
 			</form>
 		</div>
