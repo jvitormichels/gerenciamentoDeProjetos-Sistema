@@ -64,7 +64,7 @@
 					//filtra entre as atividades do projeto aquelas que 
 					//terminam depois do próprio projeto e não foram finalizadas ainda
 					//e verifica quantas linhas foram retornadas
-					$aux_activities_late = mysqli_query($link, "SELECT finished FROM activities WHERE finished=0 AND project_id = $project_id AND DATE(date_end) > DATE('" . $project_deadline . "')");
+					$aux_activities_late = mysqli_query($link, "SELECT finished FROM activities WHERE project_id = $project_id AND DATE(date_end) > DATE('" . $project_deadline . "')");
 					$num_activities_late = mysqli_num_rows($aux_activities_late);
 					$atraso = $num_activities_late == 0 ? "Sem atrasos" : "Sim";
 

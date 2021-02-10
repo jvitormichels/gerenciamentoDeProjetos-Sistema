@@ -252,7 +252,7 @@ function ProjectEditModal(projectID, projectName, dateStart, dateEnd) {
     buttonsDiv.appendChild(submitButton);
 
     //anexa caixa de botões ao modal
-    modalContent.appendChild(buttonsDiv);
+    editionForm.appendChild(buttonsDiv);
 
     //anexa o modal ao documento
     document.body.appendChild(modal);
@@ -499,7 +499,7 @@ function ActivityEditModal(projectID, activityID, activityName, dateStart, dateE
     buttonsDiv.appendChild(submitButton);
 
     //anexa caixa de botões ao modal
-    modalContent.appendChild(buttonsDiv);
+    editionForm.appendChild(buttonsDiv);
 
     //anexa o modal ao documento
     document.body.appendChild(modal);
